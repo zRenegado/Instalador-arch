@@ -29,7 +29,7 @@ Agora realize as devidas mudanças no script, usando o seu editor de texto prefe
 ## Referência
 
 - [Solid State Drive - Wiki Arch Linux](https://wiki.archlinux.org/index.php/Solid_State_Drive)
-- [Disk encryption -Wiki Arch Linux}(https://wiki.archlinux.org/index.php/Disk_encryption)
+- [Disk encryption -Wiki Arch Linux](https://wiki.archlinux.org/index.php/Disk_encryption)
 - [How to properly activate TRIM for your SSD on Linux: fstrim, lvm and dm-crypt](http://blog.neutrino.es/2013/howto-properly-activate-trim-for-your-ssd-on-linux-fstrim-lvm-and-dmcrypt)
 - [Arch Linux - SSD Trim on encrypted LVM volumes](http://ggarcia.me/2016/10/11/arch-linux-ssd-trim.html)
 - [Installing (encrypted) Arch Linux on an Apple MacBook Pro](https://0xadada.pub/2016/03/05/install-encrypted-arch-linux-on-apple-macbook-pro)
