@@ -20,8 +20,17 @@ Agora realize as devidas mudanças no script, usando o seu editor de texto prefe
 	
 	sh instalador_arch.sh
 
-Adivertência
+##Adivertência
 
 - Para hd, não se faz necessario o uso do parametro discards e o peridico fstrim.[Dúvidas](https://wiki.archlinux.org/index.php/Solid_State_Drive)
 - O projeto esta em alfa, portanto aguarde ate que todo o script esteja funcional, para efitar ficar com um instalação parcial.
 - Use por sua conta e risco.
+
+## Referência
+
+-[Solid State Drive - Wiki Arch Linux](https://wiki.archlinux.org/index.php/Solid_State_Drive)
+-[Disk encryption -Wiki Arch Linux}(https://wiki.archlinux.org/index.php/Disk_encryption)
+-[How to properly activate TRIM for your SSD on Linux: fstrim, lvm and dm-crypt](http://blog.neutrino.es/2013/howto-properly-activate-trim-for-your-ssd-on-linux-fstrim-lvm-and-dmcrypt)
+-[Arch Linux - SSD Trim on encrypted LVM volumes](http://ggarcia.me/2016/10/11/arch-linux-ssd-trim.html)
+-[Installing (encrypted) Arch Linux on an Apple MacBook Pro](https://0xadada.pub/2016/03/05/install-encrypted-arch-linux-on-apple-macbook-pro)
+-[ArchLinux Installation Guide on Encrypted SSD](https://danynativel.com/2017/01/29/archlinux-installation-guide-on-encrypted-ssd-2017/)
