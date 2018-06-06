@@ -27,11 +27,12 @@ readonly MAGENTA='\e[35m\e[1m'
 readonly NEGRITO='\e[1m'
 readonly SEMCOR='\e[0m'
 
-# Usuário
+# FAÇA AS ALTERAÇÕES NECESSARIAS PARA INSTALAR O SISTEMA
 MY_USER=${MY_USER:-'usuario'}
 MY_USER_NAME=${MY_USER_NAME:-'Seu nome'}
 MY_USER_PASSWD=${MY_USER_PASSWD:-'usuario'}
 ROOT_PASSWD=${ROOT_PASSWD:-'usuario'}
+CRYPT_PASSWD=${CRYPT_PASSWD:-'sua_senha'}
 
 # HD
 HD=${HD:-'/dev/sda'}
@@ -92,16 +93,14 @@ xfconf-query -c xfce4-keyboard-shortcuts -p \"/commands/custom/<Ctrl>Print\" -n 
 # Window Manager's
 
 # I3wm
-readonly WM_I3="i3-gaps i3lock rofi dunst polybar nitrogen tty-clock lxappearance"
+readonly WM_I3="i3-gaps i3lock rofi dunst polybar nitrogen tty-clock lxappearance  ttf-font-awesome"
 
 # Openbox
 readonly WM_OPENBOX="openbox obconf openbox-themes obmenu lxappearance-obconf tint2"
 
 # Display Manager
 readonly DM="lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings lightdm-slick-greeter lightdm-settings light-locker"
-readonly
-SLICK_CONF="[Greeter]\\\nshow-a11y=false\\\nshow-keyboard=false\\\ndraw-grid=false\\\nbackground=/usr/share/backgrounds/xfce/xfce-blue.jpg\\\nactivate-numlock=true"
-
+readonly SLICK_CONF="[Greeter]\\\nshow-a11y=false\\\nshow-keyboard=false\\\ndraw-grid=false\\\nbackground=/usr/share/backgrounds/xfce/xfce-blue.jpg\\\nactivate-numlock=true"
 
 #===============================================================================
 #----------------------------------FUNÇÕES--------------------------------------
@@ -190,8 +189,9 @@ function particionar_hd() {
 }
 
 function cripitografar() {
+  modprobe dm-crypted
+#criar um metodo para adicionar a chave de cripitografia e palavra 'YES'
   cryptsetup -v --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 5000 --use-random --align-payload=8192 luksFormat /dev/sda2
-  #reber os parametros
   cryptsetup luksOpen --allow-discards /dev/sda4 enc-lvm
 }
 function lvm() {

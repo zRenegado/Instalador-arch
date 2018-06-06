@@ -1,13 +1,11 @@
 ## Instalador-arch
-Script para instalação do Arch Linux: criptografado, lvm em sdd
+Script para instalação do Arch Linux: criptografado, lvm em SSD.
 
 [Este projeto é um fork parcial do amigo André Luis](https://github.com/andreluizs/dotfiles/blob/master/.scripts/arch/install.sh)
 
 ## Forma de uso
 
-Baixe a iso do [Arch Linux](https://www.archlinux.org), coloque-a em um pendrive e inicie a maquina. Recomendo que leia o script e faça a aleração de usuario, 
-senha e verifique as paritções, pois a senha de criptografia não pode ser trocada no sistema, verificar o tamanho das partições o script esta configurado para 
-oucupar todo o hd ou sdd. 
+Baixe a iso do [Arch Linux](https://www.archlinux.org), coloque-a em um pendrive e inicie a maquina.
 
 Uma vez com a maquina conectada na internet faça:
 
@@ -15,14 +13,22 @@ Uma vez com a maquina conectada na internet faça:
 	cd /tmp
 	git clone https://github.com/zRenegado/Instalador-arch.git
 	cd Instalador-arch
-	
-Agora realize as devidas mudanças no script, usando o seu editor de texto preferido, agora inicie o script e proveite ;).
-	
+
+Agora realize as devidas mudanças no script: Apartir da linha 31 altere os dados de usuario, usando o seu editor de texto preferido, agora inicie o script e aproveite ;). para a senha de criptografia leia o proximo topico
+
 	sh instalador_arch.sh
+
+## Senha de criptografia
+- Tamanho da senha 1-63 caracteries (podendo ser: letras, numeros e carcteries especiais)
+- Não existe, senhas inquebraveis mais você pode tentar ao maximo inibir que obtenham a sua senha, dicas :
+	- [Como escolher senhas seguras - Mozilla](https://support.mozilla.org/pt-BR/kb/como-escolher-senhas-seguras)
+	- [Dicas de Senhas - Sefanet](http://www.sefanet.pr.gov.br/sefanetv2/segSefanet/DicasSenhas.asp)
+	- [Senhas mais seguras e facies de lembrar - Dicas do Greb](http://www.dicasdogreb.com.br/crie-senhas-mais-seguras-e-faceis-de-lembrar)
+- Ficou com dúvida do poder da sua senha? [Teste aqui, uma parecida por segurança](https://howsecureismypassword.net)
 
 ## Adivertência
 
-- Para hd, não se faz necessario o uso do parametro discards e o peridico fstrim.[Dúvidas](https://wiki.archlinux.org/index.php/Solid_State_Drive)
+- Para hd, não se faz necessario o uso do parametro discards e o peridico fstrim.
 - O projeto esta em alfa, portanto aguarde ate que todo o script esteja funcional, para efitar ficar com um instalação parcial.
 - Use por sua conta e risco.
 
