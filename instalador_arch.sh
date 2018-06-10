@@ -99,7 +99,7 @@ readonly WM_I3="i3-gaps i3lock rofi dunst polybar nitrogen tty-clock lxappearanc
 readonly WM_OPENBOX="openbox obconf openbox-themes obmenu lxappearance-obconf tint2"
 
 # Display Manager
-readonly DM="lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings lightdm-slick-greeter lightdm-settings light-locker"
+readonly DM="lightdm lightdm-webkit2-greeter"
 readonly SLICK_CONF="[Greeter]\\\nshow-a11y=false\\\nshow-keyboard=false\\\ndraw-grid=false\\\nbackground=/usr/share/backgrounds/xfce/xfce-blue.jpg\\\nactivate-numlock=true"
 
 #===============================================================================
@@ -359,7 +359,6 @@ function configurar_sistema() {
     # Display Manager
     (_chuser "trizen -S ${DM} --needed --noconfirm" &> /dev/null
     _chroot "sed -i '/^#greeter-session/c \greeter-session=lightdm-webkit2-greeter' /etc/lightdm/lightdm.conf"
-    _chroot "echo -e ${SLICK_CONF} > /etc/lightdm/slick-greeter.conf"
     _chroot "systemctl enable lightdm.service" &> /dev/null) &
     _spinner "${VERDE}[I]${SEMCOR} Instalando o display manager:" $!
     echo -ne "${VERMELHO}[${SEMCOR}${VERDE}100%${SEMCOR}${VERMELHO}]${SEMCOR}\\n"
