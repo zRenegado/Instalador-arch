@@ -8,8 +8,8 @@
 #   DESCRIPTION: Script para realizar a instalação do Arch Linux.
 #
 #        AUTHOR: Guilherme Alves dos Santos
-#       CREATED: 05/2018
-#      REVISION: 1.0.0a
+#       CREATED: 06/2018
+#      REVISION: 1.0.?
 #===============================================================================
 set -o errexit
 set -o pipefail
@@ -56,7 +56,7 @@ readonly ARCH_ENTRIE="\\\"Arch Linux\\\" \\\"rw root=${HD}2 acpi_backlight=none 
 
 # Video
 readonly DISPLAY_SERVER="xorg-server xorg-xinit xorg-xprop xorg-xbacklight xorg-xdpyinfo xorg-xrandr"
-readonly VGA_INTEL="mesa xf86-video-intel lib32-mesa vulkan-intel"
+readonly VGA_INTEL="mesa xf86-video-intel lib32-mesa vulkan-intel intel-ucode"
 readonly VGA_VBOX="virtualbox-guest-utils virtualbox-guest-modules-arch"
 
 # Pacotes extras
@@ -65,10 +65,7 @@ readonly PKG_EXTRA=("bash-completion" "powerline" "powerline-fonts" "xf86-input-
                     "telegram-desktop" "p7zip" "zip" "unzip" "unrar" "wget" "numlockx" "gksu"
                     "ttf-iosevka-term-ss09" "ttf-ubuntu-font-family" "ttf-font-awesome" "ttf-monoid" "ttf-fantasque-sans-mono"
                     "compton" "pavucontrol"
-                    "pamac-aur-git" "gtk-engine-murrine" "adapta-gtk-theme" "plank"
-                    "papirus-icon-theme-git" "arc-gtk-theme-git" "bibata-cursor-theme"
-                    "virtualbox" "virtualbox-host-modules-arch" "linux-headers"
-                    "spotify" "hardcode-tray-git" )
+                    "pamac-aur-git" "gtk-engine-murrine" "adapta-gtk-theme" "plank" )
 
 readonly PKG_DEV=("jdk8" "intellij-idea-ultimate-edition-jre" "intellij-idea-ultimate-edition")
 
@@ -253,6 +250,9 @@ function configurar_sistema() {
     _chroot "locale-gen" 1> /dev/null
     _chroot "echo LANG=pt_BR.UTF-8 > /etc/locale.conf"
     _chroot "export LANG=pt_BR.UTF-8"
+    _chroot "pacman -S linux-lts linux-lts-headers"
+    _chroot "pacman -R linux"
+    _chroot "mkinitcpio -p linux"
 
     # Swapfile
     #_msg info "Criando o swapfile com ${MAGENTA}${SWAP_SIZE}MB${SEMCOR}."
@@ -273,6 +273,7 @@ function configurar_sistema() {
     _chroot "sed -i '/multilib]/,+1  s/^#//' /etc/pacman.conf"
 
     # lvm
+    _msg info 'Ativando o suporte a lvm'
     _chroot "sed -i '/issue_discards/,+1  s/^#//' /etc/lvm/lvm.conf"
 
     # mkinitcpio
